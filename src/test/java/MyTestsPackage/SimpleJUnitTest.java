@@ -1,3 +1,5 @@
+package MyTestsPackage;
+
 import org.junit.jupiter.api.*;
 
 import static com.codeborne.selenide.Condition.text;
@@ -34,14 +36,12 @@ public class SimpleJUnitTest {
     private int getResult(){
         return 3;
     }
-
-     @Test
+    @Test
     void successfulSearchTest() {
-    open("https://www.google.com/");
-    $("[name=q]").setValue("selenide").pressEnter();
-    $("[id=search]").shouldHave(text("https://selenide.org"));
-}
-
+        open("https://www.google.com/");
+        $("[name=q]").setValue("selenide").pressEnter();
+        $("[id=search]").shouldHave(text("https://selenide.org"));
+    }
 
     @Test
     void firstTest() {
