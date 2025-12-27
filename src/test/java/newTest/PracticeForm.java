@@ -13,12 +13,12 @@ public class PracticeForm {
 
 
     @BeforeAll
-    static void beforeAll(){
+    static void setupSelenideEnv(){
         Configuration.browserSize = "1920*1080";
         Configuration.baseUrl ="https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
         Configuration.holdBrowserOpen = false;
-        Configuration.timeout = 8000;
+        Configuration.timeout = 4000;
     }
 
     @Test
