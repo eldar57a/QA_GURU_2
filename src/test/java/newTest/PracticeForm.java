@@ -17,8 +17,6 @@ public class PracticeForm {
         Configuration.browserSize = "1920*1080";
         Configuration.baseUrl ="https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = false;
-        Configuration.timeout = 4000;
     }
 
     @Test
