@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class PracticeFormRegistrationPage {
 
-    private SelenideElement firstNameInput = $("#firstName"),
+    private final SelenideElement firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
             genterWrapper = $("#genterWrapper"),
@@ -29,6 +29,11 @@ public class PracticeFormRegistrationPage {
     public PracticeFormRegistrationPage openPage() {
         //Открытие браузера
         open("/automation-practice-form");
+        return this;
+    }
+
+    public PracticeFormRegistrationPage removeBanner() {
+        //Удаленние баннеров рекламы
         executeJavaScript("$('footer').remove();");
         executeJavaScript("$('#fixedban').remove();");
         return this;

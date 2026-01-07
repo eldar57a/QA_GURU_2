@@ -16,10 +16,16 @@ public class TestBoxPage {
     public TestBoxPage openPage() {
         //Открытие браузера и формы
         open("/text-box");
-        executeJavaScript("$('footer').remove();");
-        executeJavaScript("$('#fixedban').remove();");
         return this;
     }
+
+        public TestBoxPage removeBanner() {
+            //Удаленние баннеров рекламы
+            executeJavaScript("$('footer').remove();");
+            executeJavaScript("$('#fixedban').remove();");
+            return this;
+        }
+
     public TestBoxPage setFirstName(String value){
         fullNameInput.setValue(value);
         return this;

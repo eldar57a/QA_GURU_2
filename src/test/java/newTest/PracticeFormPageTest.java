@@ -4,14 +4,14 @@ import org.junit.jupiter.api.Test;
 import pages.PracticeFormRegistrationPage;
 import pages.components.ResultsTableComponent;
 
-public class PracticeFormPageObjectTest extends TestBase {
+public class PracticeFormPageTest extends TestBase {
 
     PracticeFormRegistrationPage practiceFormRegistrationPage = new PracticeFormRegistrationPage();
     ResultsTableComponent resultsTableComponent = new ResultsTableComponent();
 
 
     @Test
-    void onePracticeFormTest() {
+    void fillPracticeFormTest() {
         practiceFormRegistrationPage.openPage()
                 .removeBanner()
                 .setFirstName("Eldar")
@@ -40,6 +40,38 @@ public class PracticeFormPageObjectTest extends TestBase {
                 .checkResult("State and City", "Uttar Pradesh Agra")
                 // Закрытие таблицы
                 .closeLargeModal();
+    }
+
+    @Test
+    void minPracticeFormTest(){
+        practiceFormRegistrationPage.openPage()
+                .removeBanner()
+                .setFirstName("Eldar")
+                .setLastName("Akhnaza")
+                .setUserEmail("ea@it-one.ru")
+                .setGenterWrapper("Male")
+                .setUserNumber("89990009999")
+                .setSubmit();
+        //Проверка формы
+        resultsTableComponent.checkResult("Student Name", "Eldar")
+                .checkResult("Student Email", "ea@it-one.ru")
+                .checkResult("Gender", "Male")
+                .checkResult("Mobile", "8999000999")
+                // Закрытие таблицы
+                .closeLargeModal();
+    }
+
+    @Test
+    void negativePracticeFormTest(){
+        practiceFormRegistrationPage.openPage()
+                .removeBanner()
+                .setFirstName("Eldar")
+                .setUserEmail("ea@it-one.ru")
+                .setGenterWrapper("Male")
+                .setUserNumber("89990009999")
+                .setSubmit();
+        //Проверка отсутствия формы
+        resultsTableComponent.checkResultModalNotVisible();
     }
 
 }

@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class ResultsTableComponent {
 
-    private SelenideElement resultModalTitle = $("#example-modal-sizes-title-lg"),
+    private final SelenideElement resultModalTitle = $("#example-modal-sizes-title-lg"),
             tableResponsiveInput = $(".table-responsive"),
             closeLargeModalInput = $("#closeLargeModal");
 

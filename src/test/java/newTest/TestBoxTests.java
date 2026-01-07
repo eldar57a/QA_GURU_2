@@ -17,6 +17,7 @@ public class TestBoxTests extends TestBase{
     @Test
     void fillFormTest() {
         testBoxPage.openPage()
+                .removeBanner()
                 .setFirstName("Eldar Ah")
                 .setUserEmail("eak@it-one.ru")
                 .setCurrencyAddress("Some street 1")
