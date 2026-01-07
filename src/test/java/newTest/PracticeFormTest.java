@@ -32,7 +32,8 @@ public class PracticeFormTest extends TestBase{
         $("#currentAddress").setValue("Orel1");
         $("#submit").scrollTo();
         $("#state").click();
-       $("#city").click();
+        $(byText("Uttar Pradesh")).click();
+        $("#city").click();
         $(byText("Agra")).click();
         $("#submit").click();
         //Проверка формы
@@ -48,5 +49,6 @@ public class PracticeFormTest extends TestBase{
         $(".table-responsive").shouldHave(text("State and City"), text("Uttar Pradesh Agra"));
         // Закрытие таблицы
         $("#closeLargeModal").click();
+
     }
 }
