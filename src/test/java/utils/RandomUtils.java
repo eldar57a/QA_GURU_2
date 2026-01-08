@@ -45,7 +45,7 @@ public class RandomUtils {
     }
 
     public static String getRandomRusNumberString() {
-        return ("7") + getRandomInt(900, 999) + getRandomInt(100000, 999999) + "";
+        return faker.phoneNumber().subscriberNumber(10);
     }
 
     public static String getRandomEmail(String domain, String local) {
@@ -70,7 +70,7 @@ public class RandomUtils {
 
 
     public static String getRandomDay() {
-        return faker.number().numberBetween(1, 30) + "";
+        return faker.number().numberBetween(1, 28) + "";
     }
 
 
