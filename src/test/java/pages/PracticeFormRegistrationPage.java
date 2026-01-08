@@ -38,8 +38,6 @@ public class PracticeFormRegistrationPage {
         executeJavaScript("$('#fixedban').remove();");
         return this;
     }
-
-
     public PracticeFormRegistrationPage setFirstName(String value){
         firstNameInput.setValue(value);
         return this;

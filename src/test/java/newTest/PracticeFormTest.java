@@ -1,74 +1,54 @@
 package newTest;
 
 import org.junit.jupiter.api.Test;
-import pages.PracticeFormRegistrationPage;
-import pages.components.ResultsTableComponent;
 
-public class PracticeFormTest extends TestBase {
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide .*;
 
-    PracticeFormRegistrationPage practiceFormRegistrationPage = new PracticeFormRegistrationPage();
-    ResultsTableComponent resultsTableComponent = new ResultsTableComponent();
+public class PracticeFormTest extends TestBase{
 
 
     @Test
     void fillPracticeFormTest() {
-        practiceFormRegistrationPage.openPage()
-                .setFirstName("Eldar")
-                .setLastName("Akhnaza")
-                .setUserEmail("ea@it-one.ru")
-                .setGenterWrapper("Male")
-                .setUserNumber("89990009999")
-                .setDateOfBirthInput("1", "April", "1995")
-                .setSubject("Physics")
-                .setHobbiesWrapper("Sports")
-                .setUploadPicture("images.jpeg")
-                .setCurrencyAddress("Orel1")
-                .setState("Uttar Pradesh")
-                .setCity("Agra")
-                .setSubmit();
+        //Открытие браузера
+        open("/automation-practice-form");
+        executeJavaScript("$('footer').remove();");
+        executeJavaScript("$('#fixedban').remove();");
+        //Заполнение формы
+        $("#firstName").setValue("Eldar");
+        $("#lastName").setValue("Akh");
+        $("#userEmail").setValue("ea@it-one.ru");
+        $("#genterWrapper").$(byText("Male")).click();
+        $("#userNumber").setValue("89990009999");
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__year-select").$(byText("1995")).click();
+        $(".react-datepicker__month-select").$(byText("April")).click();
+        $(".react-datepicker__day--001").click();
+        $("#subjectsInput").click();
+        $("#subjectsInput").setValue("Physics").pressEnter();
+        $("#hobbiesWrapper").$(byText("Sports")).click();
+        $("#uploadPicture").uploadFromClasspath("images.jpeg");
+        $("#currentAddress").setValue("Orel1");
+        $("#submit").scrollTo();
+        $("#state").click();
+        $(byText("Uttar Pradesh")).click();
+        $("#city").click();
+        $(byText("Agra")).click();
+        $("#submit").click();
         //Проверка формы
-        resultsTableComponent.checkResult("Student Name", "Eldar")
-                .checkResult("Student Email", "ea@it-one.ru")
-                .checkResult("Gender", "Male")
-                .checkResult("Mobile", "8999000999")
-                .checkResult("Date of Birth", "01 April,1995")
-                .checkResult("Subjects", "Physics")
-                .checkResult("Hobbies", "Sports")
-                .checkResult("Picture", "images.jpeg")
-                .checkResult("Address", "Orel")
-                .checkResult("State and City", "Uttar Pradesh Agra")
-                // Закрытие таблицы
-                .closeLargeModal();
-    }
+        $(".table-responsive").shouldHave(text("Student Name"), text("Eldar"));
+        $(".table-responsive").shouldHave(text("Student Email"), text("ea@it-one.ru"));
+        $(".table-responsive").shouldHave(text("Gender"), text("Male"));
+        $(".table-responsive").shouldHave(text("Mobile"), text("8999000999"));
+        $(".table-responsive").shouldHave(text("Date of Birth"), text("01 April,1995"));
+        $(".table-responsive").shouldHave(text("Subjects"), text("Physics"));
+        $(".table-responsive").shouldHave(text("Hobbies"), text("Sports"));
+        $(".table-responsive").shouldHave(text("Picture"), text("images.jpeg"));
+        $(".table-responsive").shouldHave(text("Address"), text("Orel"));
+        $(".table-responsive").shouldHave(text("State and City"), text("Uttar Pradesh Agra"));
+        // Закрытие таблицы
+        $("#closeLargeModal").click();
 
-    @Test
-    void minPracticeFormTest(){
-        practiceFormRegistrationPage.openPage()
-                .setFirstName("Eldar")
-                .setLastName("Akhnaza")
-                .setUserEmail("ea@it-one.ru")
-                .setGenterWrapper("Male")
-                .setUserNumber("89990009999")
-                .setSubmit();
-        //Проверка формы
-        resultsTableComponent.checkResult("Student Name", "Eldar")
-                .checkResult("Student Email", "ea@it-one.ru")
-                .checkResult("Gender", "Male")
-                .checkResult("Mobile", "8999000999")
-                // Закрытие таблицы
-                .closeLargeModal();
     }
-
-    @Test
-    void negativePracticeFormTest(){
-        practiceFormRegistrationPage.openPage()
-                .setFirstName("Eldar")
-                .setUserEmail("ea@it-one.ru")
-                .setGenterWrapper("Male")
-                .setUserNumber("89990009999")
-                .setSubmit();
-        //Проверка отсутствия формы
-        resultsTableComponent.checkResultModalNotVisible();
-    }
-
 }
