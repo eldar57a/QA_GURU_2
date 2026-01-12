@@ -30,7 +30,7 @@ public class PageFormAnnotationTest extends TestBase {
     })
     @Order(1)
     @CsvFileSource(resources = "/test_data/subjectsAndHobbies.csv")
-    @ParameterizedTest(name = "Проверка у регистрации с выбором определенного subjects {0} и hobbies")
+    @ParameterizedTest(name = "Проверка регистрации с выбором определенного subjects {0} и hobbies {1}")
     void fullRegistrationFormFieldsShouldBeFilled(String subject, String hobbies) {
         practiceFormRegistrationPage.setFirstName("Eldar")
                 .setLastName("Akhnaza")
