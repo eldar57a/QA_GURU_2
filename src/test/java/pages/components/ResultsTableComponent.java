@@ -14,7 +14,6 @@ public class ResultsTableComponent {
             closeLargeModalInput = $("#closeLargeModal");
 
 
-
     public ResultsTableComponent checkResult(String key, String value) {
         tableResponsiveInput
                 .$(byText(key)).
@@ -22,10 +21,12 @@ public class ResultsTableComponent {
                 .shouldHave(text(value));
         return this;
     }
+
     public void closeLargeModal() {
         closeLargeModalInput
                 .click();
     }
+
     public ResultsTableComponent checkResultModalNotVisible() {
         resultModalTitle.shouldNot(appear);
         return this;

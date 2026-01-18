@@ -49,9 +49,8 @@ public class PracticeFormPageFakerRandomDataTest extends TestBase {
     }
 
 
-
     @Test
-    void minPracticeFormTest(){
+    void minPracticeFormTest() {
         practiceFormRegistrationPage.openPage()
                 .removeBanner()
                 .setFirstName(testData.firstName)
@@ -70,7 +69,7 @@ public class PracticeFormPageFakerRandomDataTest extends TestBase {
     }
 
     @Test
-    void negativePracticeFormTest(){
+    void negativePracticeFormTest() {
         practiceFormRegistrationPage.openPage()
                 .removeBanner()
                 .setFirstName(testData.firstName)

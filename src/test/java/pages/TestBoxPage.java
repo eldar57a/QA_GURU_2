@@ -9,7 +9,7 @@ public class TestBoxPage {
     private final SelenideElement
             fullNameInput = $("#userName"),
             userEmailInput = $("#userEmail"),
-            currentAddress = $("#currentAddress" ),
+            currentAddress = $("#currentAddress"),
             permanentAddress = $("#permanentAddress"),
             submit = $("#submit");
 
@@ -19,30 +19,33 @@ public class TestBoxPage {
         return this;
     }
 
-        public TestBoxPage removeBanner() {
-            //Удаленние баннеров рекламы
-            executeJavaScript("$('footer').remove();");
-            executeJavaScript("$('#fixedban').remove();");
-            return this;
-        }
+    public TestBoxPage removeBanner() {
+        //Удаленние баннеров рекламы
+        executeJavaScript("$('footer').remove();");
+        executeJavaScript("$('#fixedban').remove();");
+        return this;
+    }
 
-    public TestBoxPage setFirstName(String value){
+    public TestBoxPage setFirstName(String value) {
         fullNameInput.setValue(value);
         return this;
     }
 
-    public TestBoxPage setUserEmail(String value){
+    public TestBoxPage setUserEmail(String value) {
         userEmailInput.setValue(value);
         return this;
     }
-    public TestBoxPage  setCurrencyAddress(String value){
+
+    public TestBoxPage setCurrencyAddress(String value) {
         currentAddress.setValue(value);
         return this;
     }
-    public TestBoxPage setPermananetAddress(String value){
+
+    public TestBoxPage setPermananetAddress(String value) {
         permanentAddress.setValue(value);
         return this;
     }
+
     public TestBoxPage setSubmit() {
         submit.click();
         return this;

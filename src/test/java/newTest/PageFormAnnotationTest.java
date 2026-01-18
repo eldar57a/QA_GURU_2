@@ -75,7 +75,7 @@ public class PageFormAnnotationTest extends TestBase {
     })
     @MethodSource("minimumRegistrationFormFieldsProvider")
     @ParameterizedTest(name = "Проверка соответствия минимальных вводных, имени {0} фамилии {1} почты {2} гендера {3} телефона {4}")
-    void minimumRegistrationFormFieldsShouldBeFilled(String firstname, String lastname, String email, Gender gender , String phone) {
+    void minimumRegistrationFormFieldsShouldBeFilled(String firstname, String lastname, String email, Gender gender, String phone) {
         practiceFormRegistrationPage
                 .setFirstName(firstname)
                 .setLastName(lastname)

@@ -1,5 +1,7 @@
 package newTest;
 
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import pages.PracticeFormRegistrationPage;
 import pages.components.ResultsTableComponent;
@@ -43,7 +45,7 @@ public class PracticeFormPageTest extends TestBase {
     }
 
     @Test
-    void minPracticeFormTest(){
+    void minPracticeFormTest() {
         practiceFormRegistrationPage.openPage()
                 .removeBanner()
                 .setFirstName("Eldar")
@@ -62,7 +64,7 @@ public class PracticeFormPageTest extends TestBase {
     }
 
     @Test
-    void negativePracticeFormTest(){
+    void negativePracticeFormTest() {
         practiceFormRegistrationPage.openPage()
                 .removeBanner()
                 .setFirstName("Eldar")
